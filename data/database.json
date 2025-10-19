@@ -1,4 +1,13 @@
 {
-  "test": true,
-  "timestamp": "2025-10-19T11:40:29.626Z"
+  "users": [
+    {
+      "username": "Nwalhost",
+      "password": "adminkau123",
+      "role": "admin",
+      "expiry": 1942478400000,
+      "createdAt": 1739884800000
+    }
+  ],
+  "bugRequests": [],
+  "lastUpdated": "2024-10-19T11:00:00.000Z"
 }
