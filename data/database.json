@@ -7,12 +7,15 @@
       "expiry": 1942478400000,
       "createdAt": 1739884800000
     }
+  ]
+
+  "users": [
     {
       "username": "Nwal",
       "password": "admin",
       "role": "admin",
       "expiry": 1942478400000,
-      "createdAt": 1739884800000
+      "createdAt": 17394800000
     }
   ],
   "bugRequests": [],
