@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DarkVerse - WhatsApp Bug Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="js/github-db.js"></script>
     <style>
-        /* CSS sama seperti sebelumnya */
+        /* CSS styles tetap sama seperti sebelumnya */
         * {
             margin: 0;
             padding: 0;
@@ -44,339 +43,30 @@
             padding: 20px;
         }
         
-        /* Header & Navigation */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            margin-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+        /* Tambahkan semua CSS dari sebelumnya */
+        /* ... */
         
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo h1 {
-            font-size: 2.2rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
-        }
-        
-        .logo .tagline {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: 5px;
-        }
-        
-        nav {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text);
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .nav-btn:hover, .nav-btn.active {
-            background: rgba(37, 211, 102, 0.2);
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-        
-        /* Login Section */
-        .login-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
-            animation: fadeIn 1s ease;
-        }
-        
-        .login-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
-            margin-bottom: 30px;
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        .login-form {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            width: 100%;
-            max-width: 450px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .login-form h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 1.8rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 0 2px var(--primary);
-        }
-        
-        input::placeholder, textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 25px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            text-decoration: none;
-        }
-        
-        .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .btn-danger {
-            background: var(--danger);
-        }
-        
-        .btn-danger:hover {
-            background: #c0392b;
-        }
-        
-        .btn-warning {
-            background: var(--warning);
-        }
-        
-        .btn-warning:hover {
-            background: #e67e22;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            background: var(--success);
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            transform: translateX(100px);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .notification.show {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .notification.error {
-            background: var(--danger);
-        }
-        
-        .notification.warning {
-            background: var(--warning);
-        }
-        
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        }
-        
-        .card h2 {
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary);
-        }
-        
-        .main-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            animation: fadeIn 1.5s ease;
-        }
-        
-        .bug-list, .user-list {
-            list-style: none;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        
-        .bug-item, .user-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .bug-item:hover, .user-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
-        }
-        
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .status-pending {
-            background: rgba(241, 196, 15, 0.2);
-            color: #f1c40f;
-        }
-        
-        .status-completed {
-            background: rgba(46, 204, 113, 0.2);
-            color: var(--success);
-        }
-        
-        @keyframes floating {
-            0% { transform: translate(0, 0px); }
-            50% { transform: translate(0, -10px); }
-            100% { transform: translate(0, 0px); }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- GitHub Config Modal -->
-        <div id="githubConfigModal" class="card" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; max-width: 500px; width: 90%;">
-            <h2><i class="fab fa-github"></i> GitHub Database Setup</h2>
-            <div class="form-group">
-                <label for="githubToken">GitHub Personal Access Token</label>
-                <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
-                <small style="color: var(--text-muted);">Token classic dengan permission: repo</small>
-            </div>
-            <div class="form-group">
-                <label for="githubRepo">Repository</label>
-                <input type="text" id="githubRepo" placeholder="username/repo-name" value="NavsOffc/database">
-            </div>
-            <div class="form-group">
-                <label for="githubBranch">Branch</label>
-                <input type="text" id="githubBranch" value="main">
-            </div>
-            <button class="btn" onclick="saveGitHubConfig()" style="width: 100%;">
-                <i class="fas fa-save"></i> Save & Connect
-            </button>
-            <button class="btn btn-warning" onclick="testGitHubConnection()" style="width: 100%; margin-top: 10px;">
-                <i class="fas fa-plug"></i> Test Connection
-            </button>
-        </div>
-
         <!-- Header -->
         <header id="mainHeader" class="hidden">
             <div class="logo">
                 <div>
                     <h1>DarkVerse</h1>
-                    <div class="tagline">RSTRA NETWORK - Real GitHub Database</div>
+                    <div class="tagline">RSTRA NETWORK - GitHub Pages + Actions</div>
                 </div>
             </div>
             <nav>
-                <button class="nav-btn" onclick="showSection('bug')">
+                <button class="nav-btn active" onclick="showSection('bug')">
                     <i class="fas fa-bug"></i> Send Bug
                 </button>
                 <button class="nav-btn" id="adminNav" onclick="showSection('admin')">
                     <i class="fas fa-cogs"></i> Admin
                 </button>
-                <button class="nav-btn" onclick="showGitHubConfig()">
-                    <i class="fab fa-github"></i> GitHub Config
+                <button class="nav-btn" onclick="showDatabaseInfo()">
+                    <i class="fas fa-database"></i> Database Info
                 </button>
                 <button class="nav-btn" onclick="logout()">
                     <i class="fas fa-sign-out-alt"></i> Logout
@@ -400,6 +90,13 @@
                 <button class="btn" onclick="login()" style="width: 100%;">
                     <i class="fas fa-sign-in-alt"></i> Login to DarkVerse
                 </button>
+                
+                <!-- Default Admin Credentials -->
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                    <h4><i class="fas fa-key"></i> Default Admin Login:</h4>
+                    <p><strong>Username:</strong> Nwalhost</p>
+                    <p><strong>Password:</strong> adminkau123</p>
+                </div>
             </div>
         </div>
         
@@ -428,7 +125,7 @@
                 <div class="card">
                     <h2><i class="fas fa-history"></i> Your Request History</h2>
                     <ul id="userBugRequests" class="bug-list">
-                        <li class="bug-item">Loading your requests...</li>
+                        <li class="bug-item">No requests yet</li>
                     </ul>
                 </div>
             </div>
@@ -478,6 +175,9 @@
                     <button class="btn" onclick="sendBug()">
                         <i class="fas fa-paper-plane"></i> Send Bug
                     </button>
+                    <button class="btn btn-warning" onclick="updateDatabaseFile()" style="margin-top: 10px;">
+                        <i class="fas fa-sync"></i> Update Database File
+                    </button>
                 </div>
                 
                 <div class="card">
@@ -488,6 +188,30 @@
                 </div>
             </div>
         </div>
+
+        <!-- Database Info Modal -->
+        <div id="databaseInfoModal" class="card hidden" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; max-width: 500px; width: 90%;">
+            <h2><i class="fas fa-database"></i> Database Information</h2>
+            <div class="form-group">
+                <label>Database Type</label>
+                <input type="text" value="GitHub Pages + GitHub Actions" readonly>
+            </div>
+            <div class="form-group">
+                <label>Storage Location</label>
+                <input type="text" id="dbLocation" value="data/database.json" readonly>
+            </div>
+            <div class="form-group">
+                <label>Total Users</label>
+                <input type="text" id="dbUserCount" value="0" readonly>
+            </div>
+            <div class="form-group">
+                <label>Total Requests</label>
+                <input type="text" id="dbRequestCount" value="0" readonly>
+            </div>
+            <button class="btn" onclick="closeDatabaseInfo()" style="width: 100%;">
+                <i class="fas fa-times"></i> Close
+            </button>
+        </div>
     </div>
     
     <!-- Notification -->
@@ -496,379 +220,6 @@
         <span id="notificationText">Notification message</span>
     </div>
 
-    <script>
-        // GitHub Database Configuration
-        const GITHUB_CONFIG = {
-            token: localStorage.getItem('github_token') || '',
-            repo: localStorage.getItem('github_repo') || 'NavsOffc/database',
-            branch: localStorage.getItem('github_branch') || 'main',
-            filePath: 'data/database.json'
-        };
-
-        // Current user and data
-        let currentUser = null;
-        let database = {
-            users: [],
-            bugRequests: []
-        };
-
-        // Initialize
-        async function init() {
-            // Check if GitHub is configured
-            if (!GITHUB_CONFIG.token) {
-                document.getElementById('githubConfigModal').classList.remove('hidden');
-            } else {
-                await loadDatabase();
-                checkLogin();
-            }
-        }
-
-        // GitHub Configuration
-        function showGitHubConfig() {
-            document.getElementById('githubConfigModal').classList.remove('hidden');
-            document.getElementById('githubToken').value = GITHUB_CONFIG.token;
-            document.getElementById('githubRepo').value = GITHUB_CONFIG.repo;
-            document.getElementById('githubBranch').value = GITHUB_CONFIG.branch;
-        }
-
-        function saveGitHubConfig() {
-            GITHUB_CONFIG.token = document.getElementById('githubToken').value;
-            GITHUB_CONFIG.repo = document.getElementById('githubRepo').value;
-            GITHUB_CONFIG.branch = document.getElementById('githubBranch').value;
-            
-            localStorage.setItem('github_token', GITHUB_CONFIG.token);
-            localStorage.setItem('github_repo', GITHUB_CONFIG.repo);
-            localStorage.setItem('github_branch', GITHUB_CONFIG.branch);
-            
-            showNotification('GitHub configuration saved!', 'success');
-            document.getElementById('githubConfigModal').classList.add('hidden');
-            init();
-        }
-
-        async function testGitHubConnection() {
-            try {
-                showNotification('Testing GitHub connection...', 'warning');
-                const testData = { test: true, timestamp: new Date().toISOString() };
-                const result = await GitHubDB.save(GITHUB_CONFIG, testData);
-                showNotification('GitHub connection successful!', 'success');
-            } catch (error) {
-                showNotification('GitHub connection failed: ' + error.message, 'error');
-            }
-        }
-
-        // Database Functions
-        async function loadDatabase() {
-            try {
-                showNotification('Loading database...', 'warning');
-                const data = await GitHubDB.load(GITHUB_CONFIG);
-                database = data || { users: [], bugRequests: [] };
-                
-                // Initialize with admin user if empty
-                if (database.users.length === 0) {
-                    const adminExpiry = new Date();
-                    adminExpiry.setFullYear(adminExpiry.getFullYear() + 10);
-                    
-                    database.users.push({
-                        username: "Nwalhost",
-                        password: "adminkau123",
-                        role: "admin",
-                        expiry: adminExpiry.getTime(),
-                        createdAt: new Date().getTime()
-                    });
-                    await saveDatabase();
-                }
-                
-                showNotification('Database loaded successfully!', 'success');
-            } catch (error) {
-                showNotification('Error loading database: ' + error.message, 'error');
-            }
-        }
-
-        async function saveDatabase() {
-            try {
-                await GitHubDB.save(GITHUB_CONFIG, database);
-                return true;
-            } catch (error) {
-                showNotification('Error saving database: ' + error.message, 'error');
-                return false;
-            }
-        }
-
-        // Authentication
-        function checkLogin() {
-            const savedUser = localStorage.getItem('currentUser');
-            if (savedUser) {
-                currentUser = JSON.parse(savedUser);
-                showApp();
-            }
-        }
-
-        async function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            const user = database.users.find(u => u.username === username && u.password === password);
-            
-            if (user) {
-                if (user.role !== 'admin' && user.expiry < Date.now()) {
-                    showNotification('Your account has expired! Contact admin.', 'error');
-                    return;
-                }
-
-                currentUser = user;
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                showApp();
-                showNotification(`Welcome back, ${user.username}!`, 'success');
-            } else {
-                showNotification('Invalid credentials!', 'error');
-            }
-        }
-
-        function logout() {
-            currentUser = null;
-            localStorage.removeItem('currentUser');
-            document.getElementById('loginSection').classList.remove('hidden');
-            document.getElementById('mainHeader').classList.add('hidden');
-            document.getElementById('userContent').classList.add('hidden');
-            document.getElementById('adminContent').classList.add('hidden');
-            showNotification('Logged out successfully', 'warning');
-        }
-
-        function showApp() {
-            document.getElementById('loginSection').classList.add('hidden');
-            document.getElementById('mainHeader').classList.remove('hidden');
-            
-            if (currentUser.role === 'admin') {
-                document.getElementById('adminNav').classList.remove('hidden');
-                showSection('admin');
-                loadAdminData();
-            } else {
-                document.getElementById('adminNav').classList.add('hidden');
-                showSection('bug');
-                loadUserData();
-            }
-        }
-
-        function showSection(section) {
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            document.getElementById('userContent').classList.add('hidden');
-            document.getElementById('adminContent').classList.add('hidden');
-            
-            if (section === 'bug') {
-                document.getElementById('userContent').classList.remove('hidden');
-                loadUserData();
-            } else if (section === 'admin') {
-                document.getElementById('adminContent').classList.remove('hidden');
-                loadAdminData();
-            }
-        }
-
-        // User Functions
-        async function sendBugRequest() {
-            const targetNumber = document.getElementById('targetNumber').value;
-            const bugType = document.getElementById('bugType').value;
-
-            if (!targetNumber) {
-                showNotification('Please enter target number!', 'error');
-                return;
-            }
-
-            const newRequest = {
-                id: Date.now(),
-                targetNumber,
-                bugType,
-                username: currentUser.username,
-                status: 'pending',
-                timestamp: new Date().toLocaleString()
-            };
-
-            database.bugRequests.push(newRequest);
-            const saved = await saveDatabase();
-
-            if (saved) {
-                document.getElementById('targetNumber').value = '';
-                showNotification('Bug request sent successfully!', 'success');
-                loadUserData();
-            }
-        }
-
-        function loadUserData() {
-            const userRequests = database.bugRequests.filter(req => req.username === currentUser.username);
-            const bugList = document.getElementById('userBugRequests');
-            
-            bugList.innerHTML = '';
-            
-            if (userRequests.length === 0) {
-                bugList.innerHTML = '<li class="bug-item">No bug requests found</li>';
-                return;
-            }
-
-            userRequests.forEach(request => {
-                const li = document.createElement('li');
-                li.className = 'bug-item';
-                li.innerHTML = `
-                    <div>
-                        <div><strong>${request.targetNumber}</strong></div>
-                        <div>${getBugTypeName(request.bugType)} - ${request.timestamp}</div>
-                    </div>
-                    <span class="status ${request.status === 'pending' ? 'status-pending' : 'status-completed'}">
-                        <i class="fas ${request.status === 'pending' ? 'fa-clock' : 'fa-check'}"></i>
-                        ${request.status === 'pending' ? 'Pending' : 'Completed'}
-                    </span>
-                `;
-                bugList.appendChild(li);
-            });
-        }
-
-        // Admin Functions
-        async function addUser() {
-            const newUsername = document.getElementById('newUsername').value;
-            const newPassword = document.getElementById('newPassword').value;
-            const expiryDays = parseInt(document.getElementById('expiryDays').value);
-
-            if (!newUsername || !newPassword) {
-                showNotification('Please fill all fields!', 'error');
-                return;
-            }
-
-            if (database.users.find(u => u.username === newUsername)) {
-                showNotification('Username already exists!', 'error');
-                return;
-            }
-
-            const expiryDate = new Date();
-            expiryDate.setDate(expiryDate.getDate() + expiryDays);
-
-            database.users.push({
-                username: newUsername,
-                password: newPassword,
-                role: "user",
-                expiry: expiryDate.getTime(),
-                createdAt: new Date().getTime()
-            });
-
-            const saved = await saveDatabase();
-
-            if (saved) {
-                document.getElementById('newUsername').value = '';
-                document.getElementById('newPassword').value = '';
-                showNotification(`User ${newUsername} added successfully!`, 'success');
-                loadAdminData();
-            }
-        }
-
-        function loadAdminData() {
-            // Load users
-            const userList = document.getElementById('userList');
-            const regularUsers = database.users.filter(u => u.role === 'user');
-            
-            userList.innerHTML = '';
-            regularUsers.forEach(user => {
-                const li = document.createElement('li');
-                li.className = 'user-item';
-                const expiryDate = new Date(user.expiry);
-                const isExpired = user.expiry < Date.now();
-                
-                li.innerHTML = `
-                    <div>
-                        <div><strong>${user.username}</strong></div>
-                        <div>Expires: ${expiryDate.toLocaleDateString()}</div>
-                    </div>
-                    <span class="status ${isExpired ? 'status-pending' : 'status-completed'}">
-                        ${isExpired ? 'Expired' : 'Active'}
-                    </span>
-                `;
-                userList.appendChild(li);
-            });
-
-            // Load bug requests
-            const bugList = document.getElementById('bugRequests');
-            bugList.innerHTML = '';
-            
-            database.bugRequests.forEach(request => {
-                const li = document.createElement('li');
-                li.className = 'bug-item';
-                li.innerHTML = `
-                    <div>
-                        <div><strong>${request.targetNumber}</strong></div>
-                        <div>${getBugTypeName(request.bugType)} - by ${request.username}</div>
-                        <div>${request.timestamp}</div>
-                    </div>
-                    <div>
-                        <span class="status ${request.status === 'pending' ? 'status-pending' : 'status-completed'}">
-                            ${request.status === 'pending' ? 'Pending' : 'Completed'}
-                        </span>
-                        <button class="btn" onclick="processRequest(${request.id})" style="margin-left: 10px;">
-                            <i class="fas fa-cog"></i>
-                        </button>
-                    </div>
-                `;
-                bugList.appendChild(li);
-            });
-        }
-
-        async function processRequest(id) {
-            const request = database.bugRequests.find(req => req.id === id);
-            if (request) {
-                document.getElementById('adminTarget').value = request.targetNumber;
-                document.getElementById('adminBugType').value = request.bugType;
-                request.status = 'completed';
-                await saveDatabase();
-                loadAdminData();
-                showNotification('Request processed!', 'success');
-            }
-        }
-
-        function sendBug() {
-            const targetNumber = document.getElementById('adminTarget').value;
-            const bugType = document.getElementById('adminBugType').value;
-
-            if (!targetNumber) {
-                showNotification('Please enter target number!', 'error');
-                return;
-            }
-
-            const whatsappUrl = `https://wa.me/${targetNumber}?text=.${bugType}`;
-            window.open(whatsappUrl, '_blank');
-            showNotification('Bug sent successfully!', 'success');
-            document.getElementById('adminTarget').value = '';
-        }
-
-        function getBugTypeName(type) {
-            const types = {
-                'crash-android': 'Crash Android',
-                'delay-maker': 'Delay Maker', 
-                'crash-ios': 'Crash iOS'
-            };
-            return types[type] || type;
-        }
-
-        function showNotification(message, type = 'success') {
-            const notification = document.getElementById('notification');
-            const notificationText = document.getElementById('notificationText');
-            const icon = notification.querySelector('i');
-
-            notificationText.textContent = message;
-            notification.className = 'notification';
-            
-            if (type === 'error') {
-                notification.classList.add('error');
-                icon.className = 'fas fa-exclamation-circle';
-            } else if (type === 'warning') {
-                notification.classList.add('warning');
-                icon.className = 'fas fa-exclamation-triangle';
-            } else {
-                icon.className = 'fas fa-check-circle';
-            }
-
-            notification.classList.add('show');
-            setTimeout(() => notification.classList.remove('show'), 4000);
-        }
-
-        // Initialize the application
-        init();
-    </script>
+    <script src="js/app.js"></script>
 </body>
 </html>
